@@ -1,0 +1,94 @@
+{
+  "profile": {
+    "header": {
+      "firstName": "vamshi",
+      "lastName": "maddur"
+    },
+    "intro": {
+      "summary": "Around 11 years of overall IT industry experience with 5+ years of extensive experience as a Fullstack Developer primarily with React.js and Node.js. Hands-on experience in creating front end applications with React.js – single-page applications (SPA) & react isomorphic, JavaScript, Node.js, HTML, and CSS. Widely used most popular react libraries like Redux, MobX, Thunk, Saga, Maps (Google, MapBox, MapQuest, Leaflet), charts (d3, Recharts, etc.) to name a few.  Vast experience in implementing server layer with Node.js/Express. Possess experience in PostgreSQL, MongoDB, Oracle, and MS SQL databases and writing SQL scripts, procedures, triggers. Good knowledge in Software Development Life Cycle (SDLC) exclusively in Agile methodology – Scrum & Kanban. Have extensive experience in system analysis, design, and development of various web applications. Committed to utilizing my skills to further the mission of a company. Proven ability to establish and maintain excellent communication and relationships with clients."
+    },
+    "skills": {
+      "react": 5,
+      "node": 4.5,
+      "redux": 5,
+      "express": 4.5,
+      "javascript": 5,
+      "next": 4,
+      "typescript": 3.5,
+      "html": 5,
+      "css": 5,
+      "git": 4.5,
+      "jenkins": 3.5,
+      "docker": 3.5,
+      "mongo": 5,
+      "sql": 5,
+      "python": 3,
+      "deno": 3.5,
+      "rust": 2
+    },
+    "projects": [
+      {
+        "id": "lowes",
+        "client": "Lowes Inc",
+        "icon": "",
+        "duration": "Aug 2020 - Present",
+        "location": "Charlotte, NC",
+        "role": "Fullstack Developer",
+        "project": "Lowes Inc. lowes.com e-commerce website - shopping cart, checkout, and confirmation pages"
+      },
+      {
+        "id": "fb",
+        "client": "Florida Blue",
+        "icon": "",
+        "duration": "July 2013 - Aug 2020",
+        "location": "Jacksonville, FL",
+        "role": "Applications Software Developer",
+        "project": "Benefits Administration System (BAS), ICB Narratives, Narrative Content Management, Bella (chatbot), SDLC methodology determination, Rome, Claim reporting – Dashboard"
+      },
+      {
+        "id": "mufg",
+        "client": "Bank of Tokyo - MUFG",
+        "icon": "",
+        "duration": "July 2011 - July 2013",
+        "location": "Jersey City, NJ",
+        "role": "",
+        "project": "PANAM-CMS (Corporate Banking &amp; Customer Management), DFA Push Out (Dodd Frank Act)"
+      },
+      {
+        "id": "celgene",
+        "client": "Celgene Pharmaceuticals",
+        "icon": "",
+        "duration": "Dec 2009 - June 2011",
+        "location": "Summit, NJ",
+        "role": "",
+        "project": "PRiME (Perfecting the Risk Management Environment)"
+      }
+    ],
+    "details": {
+      "social": [
+        {
+          "id": "linkedin",
+          "type": "LinkedIn",
+          "link": "https://www.linkedin.com/in/vamshimaddur"
+        },
+        {
+          "id": "github",
+          "type": "Github",
+          "link": "https://github.com/vamci07"
+        }
+      ],
+      "education": [
+        {
+          "degree": "Masters in Computers",
+          "school": "University of Northern Virginia",
+          "duration": "Jan 2017 — May 2019"
+        },
+        {
+          "degree": "Bachelors in Electronics and Computers,",
+          "school": "Anna University, Chennai, India",
+          "duration": "Aug 2001 — May 2005"
+        }
+      ]
+    }
+  }
+}
