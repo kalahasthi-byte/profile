@@ -1,56 +1,43 @@
-const express = require("express");
-const path = require("path");
-const app = express();
+var createError = require("http-errors");
+var express = require("express");
+var path = require("path");
+var cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+var logger = require("morgan");
 const nodemailer = require("nodemailer");
 
+var indexRouter = require("./routes/index");
+var emailRouter = require("./routes/email");
+var usersRouter = require("./routes/users");
+
+var app = express();
+
+app.use(logger("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "client/build")));
-
-const contactEmail = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 465,
-  auth: {
-    user: process.env.USERNAME || "vmaddur007@gmail.com",
-    pass: process.env.PASSWORD || "vonmuk-pegpaR-1rijmu",
-  },
-});
-
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
-
-app.get("/", (req, res) => res.send("Hello world"));
-app.get("/api/hello", (req, res) => res.send("Hello world"));
-
-app.post("/api/email", (req, res) => {
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
-  const company = req.body.company;
-  const email = req.body.email;
-  const phonenumber = req.body.phonenumber;
-  const message = req.body.message;
-
-  const mail = {
-    from: `${firstname} ${lastname}`,
-    to: process.env.DESTINATION || "maddur.vamshi@gmail.com",
-    subject: "Contact from profile portal!",
-    html: `<p>Name: ${firstname} ${lastname}</p><p>Company: ${company}</p><p>Email: ${email}</p><p>Phone No.: ${phonenumber}</p><p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json({ status: 400, message: "ERROR" });
-    } else {
-      res.json({ status: 200, message: "Message Sent" });
-    }
-  });
-});
-
 app.use(bodyParser.json());
+
+app.use("/", indexRouter);
+app.use("/api/email", emailRouter);
+app.use("/users", usersRouter);
+
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
+});
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
