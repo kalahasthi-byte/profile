@@ -1,9 +1,10 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, "client/build")));
 
 const contactEmail = nodemailer.createTransport({
   service: "gmail",
@@ -51,8 +52,8 @@ app.post("/api/email", (req, res) => {
 
 app.use(bodyParser.json());
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
 module.exports = app;
