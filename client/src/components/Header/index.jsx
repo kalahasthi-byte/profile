@@ -2,6 +2,7 @@ import _ from "lodash";
 import { Transition } from "@headlessui/react";
 import { profile } from "../../constants/profile.json";
 import { SOCIAL } from "../../constants/definitions";
+import vm from "../../assets/icons/vm.svg";
 
 export default function Header() {
   const {
@@ -10,7 +11,7 @@ export default function Header() {
   } = profile;
   return (
     <Transition
-      show
+      show={true}
       enter="transition ease-out duration-150 transform"
       enterFrom="opacity-0 scale-95"
       enterTo="opacity-100 scale-100"
@@ -19,7 +20,8 @@ export default function Header() {
       leaveTo="opacity-0 scale-95"
     >
       <div className="w-full flex flex-col items-center justify-center">
-        <header className="w-full flex items-start justify-center flex-wrap p-5 lg:pt-10 text-6xl lg:text-6xl font-sans uppercase font-extrabold leading-none">
+        <header className="w-full flex items-center justify-center flex-wrap p-5 text-6xl lg:text-6xl font-sans uppercase font-extrabold leading-none">
+          <img className="h-32 w-32" src={vm} alt="vm" />
           <p className="text-black tracking-wide">
             <span>{firstName}</span>
           </p>
